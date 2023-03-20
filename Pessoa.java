@@ -12,11 +12,12 @@ import java.util.Scanner;
  */
 
 public class Pessoa {
-    String nome, cpf;
-    char sexo;
-    Data dtNasc;
-    Scanner s = new Scanner(System.in);
-    Pessoa(){
+    protected String nome, cpf;
+    protected char sexo;
+    protected Data dtNasc;
+
+    public Pessoa(){
+        Scanner s = new Scanner(System.in);
         System.out.println("Digite aqui o seu nome:");
         this.nome = s.nextLine();
         this.dtNasc = new Data();
@@ -26,7 +27,7 @@ public class Pessoa {
         this.cpf = s.next();
     }
     
-    Pessoa(String n, Data dt, char s, String c){
+    public Pessoa(String n, Data dt, char s, String c){
         System.out.println("Nova pessoa criada no sistema");
         this.nome = n;
         this.dtNasc = dt;
@@ -34,9 +35,9 @@ public class Pessoa {
         this.cpf = c;
     }
     
-    int calcIdade(Data dtAtual){
-        int numDias = dtAtual.ano * 365 + dtAtual.mes * 30 + dtAtual.dia;
-        int numNasc = this.dtNasc.ano * 365 + this.dtNasc.mes * 30 + this.dtNasc.dia;
+    public int calcIdade(Data dtAtual){
+        int numDias = dtAtual.getAno() * 365 + dtAtual.getMes() * 30 + dtAtual.getDia();
+        int numNasc = this.dtNasc.getAno() * 365 + this.dtNasc.getMes() * 30 + this.dtNasc.getDia();
         return (numDias - numNasc) / 365;
     }
 }

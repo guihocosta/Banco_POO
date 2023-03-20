@@ -10,23 +10,20 @@ package banco2023;
  */
 public class Poupanca extends Conta{
     
-    Poupanca(String num, Pessoa tit, Gerente g, Data d){
+    public Poupanca(String num, Pessoa tit, Gerente g, Data d){
         super(num, tit, g, d);
     }
     
-    Poupanca(Gerente g){
+    public Poupanca(Gerente g){
         super(g);
     }
-    
-    double disponivel(){
-        return this.saldo;
-    }
-    void extrato(){
+
+    public void extrato(){
         System.out.println("*** EXTRATO DA CONTA-POUPANCA ***");
         super.extrato();
     }
     
-    void rendimentos(double juros){
+    public void rendimentos(double juros){
         this.saldo *= (1+juros);
     }
     

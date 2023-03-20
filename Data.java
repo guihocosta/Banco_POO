@@ -11,10 +11,10 @@ import java.util.Scanner;
  * @author 20221TIIMI0050
  */
 public class Data {
-    int dia, mes, ano;
+    private int dia, mes, ano;
     Scanner s = new Scanner(System.in);
     
-    Data() {
+    public Data() {
         System.out.println("Digite o dia: ");
         this.dia = s.nextInt();
         System.out.println("Digite o mês: ");
@@ -23,17 +23,30 @@ public class Data {
         this.ano = s.nextInt();
     }
     
-    Data(int d, int m, int a){
+    public Data(int d, int m, int a){
         this.dia = d;
         this.mes = m;
         this.ano = a;          
     }
-    
-    void imprimeData(){
-        System.out.println(this.dia + "/" + this.mes + "/" + this.ano);
+
+    public int getDia() {
+        return dia;
+    }
+
+    public int getMes() {
+        return mes;
+    }
+
+    public int getAno() {
+        return ano;
+    }
+
+    public void imprimeData(){
+        System.out.println(this.dia + "/" + this.mes + "/" +
+                this.ano);
     }
     
-    boolean maior(Data d2){
+    public boolean maior(Data d2){
         if(d2.ano * 365 + d2.mes * 30 + d2.dia > this.ano * 365 + this.mes * 30 + this.dia) {
             return true;
         }

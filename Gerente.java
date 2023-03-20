@@ -11,10 +11,10 @@ import java.util.Scanner;
  * @author 20221TIIMI0050
  */
 public class Gerente extends Pessoa{
-    String matricula, senha;
+    private String matricula, senha;
     Scanner s = new Scanner(System.in);
     
-    Gerente(){
+    public Gerente(){
         super();
         System.out.println("Digite aqui a matrícula");
         this.matricula = s.next();
@@ -22,20 +22,20 @@ public class Gerente extends Pessoa{
         
     }
     
-    Gerente(String n, Data dt, char s, String c, String m, String sen){
+    public Gerente(String n, Data dt, char s, String c, String m, String sen){
         super(n,dt,s,c);
         this.matricula = m;
         this.senha = sen;
     }
     
-    boolean validarAcesso(String sen){
+    public boolean validarAcesso(String sen){
         return sen.equals(this.senha);
     }
-    
-    boolean validarAcesso(){
+
+    public boolean validarAcesso(){
         System.out.println("Digite aqui a senha");
         String sen = s.next();
-        return sen.equals(this.senha);
+        return validarAcesso(sen);
     }
     
 }

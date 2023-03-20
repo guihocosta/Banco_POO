@@ -11,31 +11,32 @@ import java.util.Scanner;
  * @author 20221TIIMI0050
  */
 public class ContaCorrente extends Conta{
-    double limite;
-    Scanner s = new Scanner(System.in);
+    private double limite;
+
     
-    ContaCorrente(String num, Pessoa tit, Gerente g, Data d){
+    public ContaCorrente(String num, Pessoa tit, Gerente g, Data d){
         super(num, tit, g, d);
         this.limite = 200;
     }
     
-    ContaCorrente(Gerente g){
+    public ContaCorrente(Gerente g){
         super(g);
     }
 
-    void chequeEspecial(double juro){
+    public void chequeEspecial(double juro){
         if (saldo < 0){
             this.saldo *= (1+juro/100);
         }
     }
     
-    void alterarLimite(String pwd, double l){
+    public void alterarLimite(String pwd, double l){
         if(this.gerente.validarAcesso(pwd)){
             this.limite = l;
         }
     }
     
-    void alterarLimite(){
+    public void alterarLimite(){
+        Scanner s = new Scanner(System.in);
         String pwd = s.next();
         Double l = s.nextDouble();
         
@@ -44,11 +45,12 @@ public class ContaCorrente extends Conta{
         }
     }
     
-    double disponivel(){
+    protected double disponivel(){
+
         return this.saldo + this.limite;
     }
     
-    void extrato(){
+    public void extrato(){
         System.out.println("*** EXTRATO DA CONTA-CORRENTE ***");
         super.extrato();
     }

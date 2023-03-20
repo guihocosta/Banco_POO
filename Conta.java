@@ -11,14 +11,14 @@ import java.util.Scanner;
  * @author 20221TIIMI0050
  */
 public class Conta {
-    String numero;
-    Pessoa titular;
-    Data criacao;
-    double saldo;
-    Gerente gerente;
-    Scanner s = new Scanner(System.in);
+    protected String numero;
+    protected Pessoa titular;
+    protected Data criacao;
+    protected double saldo;
+    protected Gerente gerente;
     
-    Conta(Gerente g){
+    public Conta(Gerente g){
+        Scanner s = new Scanner(System.in);
         this.gerente = g;
         System.out.print("Escreva o numero da conta: ");
         this.numero = s.next();
@@ -37,21 +37,21 @@ public class Conta {
         System.out.println("Nova conta adicionada ao sistema.");
     }
     
-    void depositar(double valor){
+    public void depositar(double valor){
         this.saldo = valor;
     }
     
-    double disponivel(){
+    protected double disponivel(){
         return this.saldo;
     }
     
-    void extrato(){
+    public void extrato(){
         System.out.println("Conta: " + this.numero);
         System.out.println("Titular: " + this.titular.cpf);
         System.out.println("Saldo disponivel: " + this.disponivel());
                                 
     }
-    boolean sacar(double valor){
+    public boolean sacar(double valor){
         if(this.disponivel() >= valor){
             this.saldo -= valor;
             return true;
@@ -61,7 +61,7 @@ public class Conta {
         }
     }
     
-    boolean transferir(double v, Conta dest){
+    public boolean transferir(double v, Conta dest){
         if(this.disponivel() > v){
             this.sacar(v);
             dest.depositar(v);

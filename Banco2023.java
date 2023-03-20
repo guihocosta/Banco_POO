@@ -25,8 +25,7 @@ public class Banco2023 {
        
         Poupanca cp1 = new Poupanca(g2);
         Poupanca cp2 = new Poupanca(g2);
-       
-            
+
         /* 
         for (int i = 1; i <= 120; i++) {
            cc1.chequeEspecial(0.5);
